@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>me.dio</groupId>
-	<artifactId>santander-dev-week</artifactId>
+	<artifactId>Challenge-DIO-AWS</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>santander-dev-week</name>
 	<description>Java RESTful API criada para a Santander Dev Week 2023</description>
