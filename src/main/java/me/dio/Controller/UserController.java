@@ -2,6 +2,7 @@ package me.dio.Controller;
 
 import me.dio.domain.model.User;
 import me.dio.service.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -37,9 +38,7 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id){
-
         userService.deleteById(id);
-
         return ResponseEntity.noContent().build();
     }
 

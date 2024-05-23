@@ -30,10 +30,8 @@ public class UserServiceImpl implements UserService {
     }
 
     public void deleteById(Long id){
-        var userExists = userRepository.existsById(id);
-        if(userExists) {
-            userRepository.deleteById(id);
-        }
+        findById(id);
+        userRepository.deleteById(id);
     }
 
 
