@@ -28,4 +28,14 @@ public class UserServiceImpl implements UserService {
         }
         return userRepository.save(userToCreate);
     }
+
+    public void deleteById(Long id){
+        var userExists = userRepository.existsById(id);
+        if(userExists) {
+            userRepository.deleteById(id);
+        }
+    }
+
+
+
 }
