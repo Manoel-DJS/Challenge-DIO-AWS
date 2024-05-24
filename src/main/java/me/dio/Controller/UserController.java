@@ -1,5 +1,6 @@
 package me.dio.Controller;
 
+import me.dio.Controller.dto.UpdateUserDto;
 import me.dio.domain.model.User;
 import me.dio.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -34,6 +35,14 @@ public class UserController {
                 .buildAndExpand(userCreated.getId())
                 .toUri();
         return ResponseEntity.created(location).body(userCreated);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateById(@PathVariable Long id,
+                                           @RequestBody UpdateUserDto updateUserDto){
+        // Teste apenas com o Nome
+        userService.updateById(id,updateUserDto);
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/{id}")

@@ -1,5 +1,6 @@
 package me.dio.service.impl;
 
+import me.dio.Controller.dto.UpdateUserDto;
 import me.dio.domain.model.User;
 import me.dio.domain.repository.UserRepository;
 import me.dio.service.UserService;
@@ -29,11 +30,25 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(userToCreate);
     }
 
+    public void updateById(Long id,
+                           UpdateUserDto updateUserDto){
+        findById(id); // Reaproveitar para chamar as exceptions
+        var userEntity = userRepository.findById(id);
+        if (userEntity.isPresent()){
+            var user = userEntity.get();
+
+            if(updateUserDto.username() != null){
+                user.setName(updateUserDto.username());
+                // Trocando para novo nome
+            }
+
+            userRepository.save(user);
+        }
+    }
+
     public void deleteById(Long id){
         findById(id);
         userRepository.deleteById(id);
     }
-
-
 
 }
